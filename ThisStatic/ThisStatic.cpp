@@ -2,9 +2,17 @@
 //
 
 #include <iostream>
+using namespace std;
 
 int main()
 {
+	int number = 0; // копирующая инициализация
+	int value(42); // прямая инициализация
+	int size{ 33 }; // унифицированная инициализация
+
+	cout << number << endl;
+	cout << value << endl;
+	cout << size << endl;
 
 }
 
