@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <vector>
-#include <list>
 using namespace std;
 
 struct Dlist {
@@ -22,8 +21,7 @@ public:
 		i++;
 	}
 
-	Point() : Point(0, 0, 0) {
-	}
+	Point() : Point(0, 0, 0) {}
 
 	Point(int x) : Point(x, 0, 0) {}
 
@@ -46,13 +44,11 @@ int Point::i = 0;
 
 class Pub {
 	vector<Point> point;
-	list<Point> point_List;
 public:
 	Pub() {
 		for (int i = 0; i < 40; i++)
 		{
 			point.push_back(Point());
-			point_List.push_back(Point());
 		}
 		
 	}
@@ -70,12 +66,6 @@ int main()
 	cout << Point::getI() << endl;
 	Pub pub;
 	cout << Point::getI() << endl;
-
-	Dlist* listt = new Dlist;
-	listt->i = 3;
-	listt->right = new Dlist{ 4, listt };
-
-	cout << listt->right->i << endl;
 
 }
 
