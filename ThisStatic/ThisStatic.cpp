@@ -5,11 +5,6 @@
 #include <vector>
 using namespace std;
 
-struct Dlist {
-	int i;
-	Dlist* left;
-	Dlist* right;
-};
 
 class Point {
 	int x;
