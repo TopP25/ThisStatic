@@ -2,17 +2,80 @@
 //
 
 #include <iostream>
+#include <vector>
+#include <list>
 using namespace std;
 
-struct Point {
+struct Dlist {
+	int i;
+	Dlist* left;
+	Dlist* right;
+};
+
+class Point {
 	int x;
 	int y;
+	int z;
+public:
+	static int i;
+	Point(int xP, int yP, int zP) : x {xP}, y{yP}, z{zP} {
+		i++;
+	}
+
+	Point() : Point(0, 0, 0) {
+	}
+
+	Point(int x) : Point(x, 0, 0) {}
+
+	int sum(int x) {
+		return this->x + x;
+	}
+
+	int sum(int x, int y) {
+		return sum(x) + y;
+	}
+
+	static int getI() {
+		return i;
+
+	}
+
+};
+
+int Point::i = 0;
+
+class Pub {
+	vector<Point> point;
+	list<Point> point_List;
+public:
+	Pub() {
+		for (int i = 0; i < 40; i++)
+		{
+			point.push_back(Point());
+			point_List.push_back(Point());
+		}
+		
+	}
+	~Pub() {
+		cout << "DEST Pub" << endl;
+	}
 };
 
 int main()
 {
-	Point point{ 10, -6 };
-	cout << " x = " << point.x << " y = " << point.y;
+
+	Point* point = new Point[14];
+	cout << point->getI() << endl;
+	Point* point2 = new Point();
+	cout << Point::getI() << endl;
+	Pub pub;
+	cout << Point::getI() << endl;
+
+	Dlist* listt = new Dlist;
+	listt->i = 3;
+	listt->right = new Dlist{ 4, listt };
+
+	cout << listt->right->i << endl;
 
 }
 
